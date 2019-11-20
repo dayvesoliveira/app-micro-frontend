@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- build:process -->
+        <title>POC - <%= title %> - <%= version %></title>
+        <!-- /build -->
+        <base href="/">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+    </head>
+    <body>
+        <app-root></app-root>
+        <!-- build:process -->
+        <% _.forEach(items, function(item) { %><div id="<%- item.id %>"><<%= item.tagName %>></<%= item.tagName %>></div><% }); %>
+        <!-- /build -->
+        <!-- build:script bundle --><!-- /build -->
+    </body>
+</html>
