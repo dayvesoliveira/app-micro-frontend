@@ -9,6 +9,12 @@ const apps = [
       tagName: "app-project01",
       nameApp: "Projeto 01",
       urlScript: "http://127.0.0.1:8081/main.js"
+  },
+  <CustomElementMicroFe>{
+    elementId: "project02-container",
+    tagName: "app-project02",
+    nameApp: "Projeto 02",
+    urlScript: "http://127.0.0.1:8082/main.js"
   }
 ];
 
