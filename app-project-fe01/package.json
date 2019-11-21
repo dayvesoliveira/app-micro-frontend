@@ -3,10 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start:1": "ng serve --port 8081",
-    "build:1": "ng build --prod --output-hashing none --single-bundle true",
     "test": "ng test",
-    "start": "npm run build && http-server --p 8081 dist/app-project-fe01",
+    "start": "ng serve --port 8081 --open",
+    "startdev": "npm run build && http-server --p 8081 dist/app-project-fe01",
     "build": "ng build --prod --output-hashing none --single-bundle",
     "lint": "ng lint",
     "e2e": "ng e2e"

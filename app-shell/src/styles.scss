@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+
+[class*="loader-"] {
+    display: block;
+    margin: auto;
+    margin-top: 150px;
+	width: 100px;
+	height: 100px;
+	color: inherit;
+	vertical-align: middle;
+	pointer-events: none;
+}
+
+.loader-05 {
+	border: 20px solid transparent;
+	border-top-color: currentcolor;
+	border-radius: 50%;
+	animation: 1s loader-05 linear infinite;
+	position: relative;
+	&:before {
+		content: '';
+		display: block;
+		width: inherit;
+		height: inherit;
+		position: absolute;
+		top: -20px;
+		;
+		left: -20px;
+		;
+		border: 20px solid currentcolor;
+		border-radius: 50%;
+		opacity: .5;
+	}
+}
+
+@keyframes loader-05 {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

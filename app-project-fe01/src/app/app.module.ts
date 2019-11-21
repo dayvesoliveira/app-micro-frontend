@@ -6,6 +6,21 @@ import { AppComponent } from './app.component';
 
 import { createCustomElement } from '@angular/elements';
 import { Project01Component } from './project01/project01.component';
+import { Page2Module } from './page2/page2.module';
+import { Page2Component } from './page2/page2.component';
+import { environment } from 'src/environments/environment';
+
+let BOOTSTRAP_ARRAY  = [ AppComponent ];
+let ENTRY_COMPONENTS = [];
+
+if (environment.production) {
+  BOOTSTRAP_ARRAY = [];
+  ENTRY_COMPONENTS = [
+    AppComponent,
+    Page2Component,
+    Project01Component
+  ];
+}
 
 @NgModule({
   declarations: [
@@ -14,13 +29,15 @@ import { Project01Component } from './project01/project01.component';
   ],
   imports: [
     BrowserModule,
+    Page2Module,
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [],
+  bootstrap: [ 
+    ...BOOTSTRAP_ARRAY  
+  ],
   entryComponents: [
-    AppComponent,
-    //Project01Component
+    ...ENTRY_COMPONENTS
   ]
 })
 export class AppModule {
@@ -28,12 +45,15 @@ export class AppModule {
   constructor(private injector: Injector) { }
 
   ngDoBootstrap(): void {
-
-    const { injector } = this;
-    
-    const ngCustomElement = createCustomElement(AppComponent, { injector });
-
-    customElements.define('app-project01', ngCustomElement);
+    if (environment.production) {
+      console.log('> environment.production[ngDoBootstrap]')
+      const { injector } = this;
+      const ngCustomElement = createCustomElement(Page2Component, { injector });
+      if (!customElements.get('app-project01')) {
+         console.log('ngDoBootstrap->app-project01')
+         customElements.define('app-project01', ngCustomElement);
+      }
+    }
   }
   
 }
