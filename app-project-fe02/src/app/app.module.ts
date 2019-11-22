@@ -40,7 +40,7 @@ BOOTSTRAP_ARRAY = [
   ],
   providers: [],
   bootstrap: [ 
-    ...BOOTSTRAP_ARRAY  
+    AppComponent
   ],
   entryComponents: [
     ...ENTRY_COMPONENTS
