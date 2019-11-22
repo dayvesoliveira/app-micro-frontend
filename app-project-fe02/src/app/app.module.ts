@@ -10,9 +10,9 @@ import { Page2Module } from './page2/page2.module';
 import { Page2Component } from './page2/page2.component';
 import { environment } from 'src/environments/environment';
 
-let BOOTSTRAP_ARRAY  = [ AppComponent ];
+let BOOTSTRAP_ARRAY  = [];
 let ENTRY_COMPONENTS = [];
-
+/*
 if (environment.production) {
   BOOTSTRAP_ARRAY = [];
   ENTRY_COMPONENTS = [
@@ -21,6 +21,12 @@ if (environment.production) {
     Project01Component
   ];
 }
+*/
+BOOTSTRAP_ARRAY = [
+  AppComponent,
+  Page2Component,
+  Project01Component
+];
 
 @NgModule({
   declarations: [
@@ -40,8 +46,8 @@ if (environment.production) {
     ...ENTRY_COMPONENTS
   ]
 })
-export class AppModule {
-  
+export class Pr2Module {
+  /*
   constructor(private injector: Injector) { }
 
   ngDoBootstrap(): void {
@@ -54,6 +60,6 @@ export class AppModule {
          customElements.define('app-project02', ngCustomElement);
       }
     }
-  }
+  }*/
   
 }
